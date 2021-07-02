@@ -13,11 +13,13 @@ class BiteFish extends Fish {
       const deniz = tank.denizens[id];
       const { x: x2, y: y2 } = deniz.position;
       const dist = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
-      const isPrey = deniz instanceof Fish && !(deniz instanceof BiteFish);
-      if (isPrey && dist < 500) {
+      const isPrey =
+        deniz instanceof Seed ||
+        (deniz instanceof Fish && !(deniz instanceof BiteFish));
+      if (isPrey && dist < this.width * 20) {
         deniz.kill();
-        this.width *= 1.1;
-        this.height *= 1.1;
+        this.width *= 1.2;
+        this.height *= 1.2;
       }
     }
   }
