@@ -12,7 +12,6 @@ class Denizen {
     this.id = this.tank.registerDenizen(this);
     this.onClick = this.onClick.bind(this);
     this.hueRotate = 0;
-    this.hueRotationSpeed = 0;
   }
 
   calcPhysicsTicks(newTime) {
@@ -46,6 +45,7 @@ class Denizen {
       css: {
         width: this.width,
         height: this.height,
+        filter: `hue-rotate(${this.hueRotate}deg)`,
       },
       x: this.position.x - Math.floor(this.width / 2),
       y: this.position.y - Math.floor(this.height / 2),
