@@ -1,5 +1,4 @@
 class Denizen {
-
   constructor(options) {
     // console.log("constructing:", this.constructor.name, options);
     this.lastTime = new Date();
@@ -12,6 +11,8 @@ class Denizen {
     this.tank = options.tank;
     this.id = this.tank.registerDenizen(this);
     this.onClick = this.onClick.bind(this);
+    this.hueRotate = 0;
+    this.hueRotationSpeed = 0;
   }
 
   calcPhysicsTicks(newTime) {
@@ -46,8 +47,8 @@ class Denizen {
         width: this.width,
         height: this.height,
       },
-      x: this.position.x - Math.floor(this.width/2),
-      y: this.position.y - Math.floor(this.height/2),
+      x: this.position.x - Math.floor(this.width / 2),
+      y: this.position.y - Math.floor(this.height / 2),
     };
   }
 
